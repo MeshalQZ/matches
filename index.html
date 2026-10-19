@@ -87,4 +87,568 @@ footer .stale{color:var(--amber)}
   <div id="bg" aria-hidden="true">
 
     <!-- 0) الصباح: مشرق وحماسي ومبهج -->
-    <svg id="sc0" class="scene" viewBox="0 0 1920
+    <svg id="sc0" class="scene" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g0sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#1f78d6"/><stop offset=".38" stop-color="#3ea6f0"/>
+          <stop offset=".6" stop-color="#8fd8fb"/><stop offset=".74" stop-color="#ffe9ae"/>
+          <stop offset="1" stop-color="#ffc67a"/>
+        </linearGradient>
+        <radialGradient id="g0sun">
+          <stop offset="0" stop-color="#fffbe0" stop-opacity=".95"/>
+          <stop offset=".35" stop-color="#ffe27a" stop-opacity=".55"/>
+          <stop offset="1" stop-color="#ffd35a" stop-opacity="0"/>
+        </radialGradient>
+        <g id="cl0" fill="#fff">
+          <ellipse cx="0" cy="0" rx="120" ry="38"/><ellipse cx="-70" cy="10" rx="70" ry="30"/>
+          <ellipse cx="80" cy="8" rx="80" ry="32"/><ellipse cx="20" cy="-26" rx="70" ry="38"/>
+        </g>
+      </defs>
+      <rect width="1920" height="1080" fill="url(#g0sky)"/>
+      <circle cx="1480" cy="700" r="540" fill="url(#g0sun)"/>
+      <g id="rays0" stroke="#fff6c0" stroke-width="10" stroke-linecap="round" opacity=".32"></g>
+      <circle cx="1480" cy="700" r="96" fill="#fff3b0"/>
+      <circle cx="1480" cy="700" r="76" fill="#ffe066"/>
+      <use href="#cl0" xlink:href="#cl0" transform="translate(260 250) scale(1.3)" opacity=".95"/>
+      <use href="#cl0" xlink:href="#cl0" transform="translate(1700 230) scale(1.1)" opacity=".92"/>
+      <use href="#cl0" xlink:href="#cl0" transform="translate(1640 470) scale(.9)" opacity=".85"/>
+      <use href="#cl0" xlink:href="#cl0" transform="translate(150 520) scale(.8)" opacity=".85"/>
+      <use href="#cl0" xlink:href="#cl0" transform="translate(860 450) scale(.7)" opacity=".7"/>
+      <g fill="none" stroke="#1d4a8a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".7">
+        <path d="M330 470 q14 -16 28 0 q14 -16 28 0"/>
+        <path d="M410 425 q10 -12 20 0 q10 -12 20 0"/>
+        <path d="M1260 500 q12 -14 24 0 q12 -14 24 0"/>
+      </g>
+      <path d="M0 780 C300 700 600 740 900 780 S1500 720 1920 760 L1920 1080 L0 1080Z" fill="#8fe0a0"/>
+      <path d="M0 870 C400 800 800 880 1200 850 S1700 810 1920 860 L1920 1080 L0 1080Z" fill="#52c97a"/>
+      <path d="M0 970 C500 915 900 990 1300 950 S1750 925 1920 960 L1920 1080 L0 1080Z" fill="#2fae5f"/>
+    </svg>
+
+    <!-- 1) الظهر: شمس عالية وسماء صافية ورمال ذهبية -->
+    <svg id="sc1" class="scene" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#0a5bd0"/><stop offset=".4" stop-color="#1f86e6"/>
+          <stop offset=".62" stop-color="#6cc0f2"/><stop offset=".74" stop-color="#cdeefb"/>
+          <stop offset="1" stop-color="#f6f1d8"/>
+        </linearGradient>
+        <radialGradient id="g1sun">
+          <stop offset="0" stop-color="#ffffff" stop-opacity=".9"/>
+          <stop offset=".3" stop-color="#fffbe0" stop-opacity=".5"/>
+          <stop offset="1" stop-color="#fff6c0" stop-opacity="0"/>
+        </radialGradient>
+        <g id="cl1" fill="#fff">
+          <ellipse cx="0" cy="0" rx="120" ry="30"/><ellipse cx="-60" cy="8" rx="70" ry="24"/>
+          <ellipse cx="70" cy="6" rx="80" ry="26"/><ellipse cx="10" cy="-18" rx="60" ry="28"/>
+        </g>
+      </defs>
+      <rect width="1920" height="1080" fill="url(#g1sky)"/>
+      <circle cx="1660" cy="170" r="320" fill="url(#g1sun)"/>
+      <circle cx="1660" cy="170" r="66" fill="#fffdf0"/>
+      <use href="#cl1" xlink:href="#cl1" transform="translate(300 260) scale(1.1)" opacity=".85"/>
+      <use href="#cl1" xlink:href="#cl1" transform="translate(1450 450) scale(.9)" opacity=".8"/>
+      <use href="#cl1" xlink:href="#cl1" transform="translate(140 500) scale(.7)" opacity=".75"/>
+      <use href="#cl1" xlink:href="#cl1" transform="translate(1000 540) scale(.6)" opacity=".6"/>
+      <path d="M0 760 C250 690 520 740 800 770 S1400 700 1920 740 L1920 1080 L0 1080Z" fill="#f3dca0"/>
+      <path d="M0 760 C250 690 520 740 800 770 S1400 700 1920 740" fill="none" stroke="#fff3c8" stroke-width="3" opacity=".7"/>
+      <path d="M0 850 C300 790 700 870 1100 840 S1650 790 1920 840 L1920 1080 L0 1080Z" fill="#e6bd6c"/>
+      <path d="M0 850 C300 790 700 870 1100 840 S1650 790 1920 840" fill="none" stroke="#fbe6a8" stroke-width="3" opacity=".6"/>
+      <path d="M0 960 C450 900 850 980 1250 940 S1750 910 1920 950 L1920 1080 L0 1080Z" fill="#d29c48"/>
+      <path d="M0 960 C450 900 850 980 1250 940 S1750 910 1920 950" fill="none" stroke="#f0c878" stroke-width="3" opacity=".6"/>
+    </svg>
+
+    <!-- 2) الغروب: سماء بنفسجية-وردية-برتقالية وشمس تغرب ونخيل -->
+    <svg id="sc2" class="scene" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g2sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#1a1a4e"/><stop offset=".3" stop-color="#4a2f86"/>
+          <stop offset=".5" stop-color="#a2468f"/><stop offset=".65" stop-color="#e8587a"/>
+          <stop offset=".78" stop-color="#ff8c42"/><stop offset=".9" stop-color="#ffc15a"/>
+          <stop offset="1" stop-color="#ffd98a"/>
+        </linearGradient>
+        <radialGradient id="g2sun">
+          <stop offset="0" stop-color="#ffe9a8" stop-opacity=".95"/>
+          <stop offset=".3" stop-color="#ffb050" stop-opacity=".6"/>
+          <stop offset="1" stop-color="#ff7a3d" stop-opacity="0"/>
+        </radialGradient>
+        <g id="palm2" fill="#150c2a">
+          <path d="M-7 0 C-1 -90 -11 -190 7 -300 L21 -300 C3 -190 13 -90 7 0Z"/>
+          <path d="M14 -300 Q-50 -360 -160 -300 Q-60 -330 14 -300Z"/>
+          <path d="M14 -300 Q78 -360 188 -300 Q88 -330 14 -300Z"/>
+          <path d="M14 -300 Q-70 -320 -130 -230 Q-60 -290 14 -300Z"/>
+          <path d="M14 -300 Q98 -320 158 -230 Q88 -290 14 -300Z"/>
+          <path d="M14 -300 Q-10 -380 -40 -420 Q20 -370 14 -300Z"/>
+          <path d="M14 -300 Q30 -380 80 -410 Q40 -350 14 -300Z"/>
+        </g>
+      </defs>
+      <rect width="1920" height="1080" fill="url(#g2sky)"/>
+      <g fill="#fff" opacity=".5">
+        <circle cx="180" cy="80" r="2"/><circle cx="480" cy="150" r="1.6"/><circle cx="760" cy="60" r="2.2"/>
+        <circle cx="1120" cy="110" r="1.6"/><circle cx="1500" cy="70" r="2"/><circle cx="1780" cy="150" r="1.6"/>
+      </g>
+      <circle cx="1380" cy="780" r="560" fill="url(#g2sun)"/>
+      <circle cx="1380" cy="780" r="118" fill="#ffe9a8"/>
+      <circle cx="1380" cy="780" r="96" fill="#ffd27a"/>
+      <g opacity=".8">
+        <ellipse cx="420" cy="570" rx="380" ry="22" fill="#ff9a6a"/>
+        <ellipse cx="520" cy="612" rx="300" ry="14" fill="#ffc27a" opacity=".8"/>
+        <ellipse cx="1560" cy="470" rx="340" ry="20" fill="#ff8a7a"/>
+        <ellipse cx="1480" cy="512" rx="260" ry="12" fill="#ffc27a" opacity=".7"/>
+        <ellipse cx="900" cy="450" rx="300" ry="16" fill="#e86a9a" opacity=".7"/>
+      </g>
+      <g fill="none" stroke="#2a1648" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".75">
+        <path d="M1000 640 q14 -16 28 0 q14 -16 28 0"/>
+        <path d="M1080 600 q10 -12 20 0 q10 -12 20 0"/>
+        <path d="M560 700 q12 -14 24 0 q12 -14 24 0"/>
+      </g>
+      <path d="M0 800 C300 740 600 780 900 810 S1500 770 1920 800 L1920 1080 L0 1080Z" fill="#6a2f6e"/>
+      <path d="M0 880 C400 820 800 890 1200 865 S1700 830 1920 875 L1920 1080 L0 1080Z" fill="#46255f"/>
+      <path d="M0 975 C500 925 900 995 1300 960 S1750 935 1920 968 L1920 1080 L0 1080Z" fill="#2a1648"/>
+      <use href="#palm2" xlink:href="#palm2" transform="translate(110 1010) scale(1.15)"/>
+      <use href="#palm2" xlink:href="#palm2" transform="translate(1830 1020) scale(-.95 .95)"/>
+    </svg>
+
+    <!-- 3) المساء/الليل: سماء داكنة وقمر ونجوم -->
+    <svg id="sc3" class="scene" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g3sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#050a1c"/><stop offset=".5" stop-color="#101c4a"/>
+          <stop offset=".8" stop-color="#3a3568"/><stop offset="1" stop-color="#6b4a6e"/>
+        </linearGradient>
+      </defs>
+      <rect width="1920" height="1080" fill="url(#g3sky)"/>
+      <g fill="#fff">
+        <circle cx="120" cy="90" r="2" opacity=".8"/><circle cx="340" cy="210" r="1.5" opacity=".6"/>
+        <circle cx="520" cy="60" r="2.5" opacity=".9"/><circle cx="700" cy="150" r="1.5" opacity=".7"/>
+        <circle cx="900" cy="80" r="2" opacity=".8"/><circle cx="1100" cy="220" r="1.5" opacity=".6"/>
+        <circle cx="1280" cy="110" r="2.5" opacity=".9"/><circle cx="1400" cy="40" r="1.5" opacity=".7"/>
+        <circle cx="1720" cy="140" r="2" opacity=".8"/><circle cx="1840" cy="260" r="1.5" opacity=".6"/>
+        <circle cx="260" cy="330" r="1.5" opacity=".5"/><circle cx="1000" cy="330" r="1.5" opacity=".5"/>
+        <circle cx="1600" cy="360" r="2" opacity=".6"/><circle cx="60" cy="440" r="1.5" opacity=".5"/>
+        <circle cx="220" cy="150" r="1.5" opacity=".6"/><circle cx="800" cy="260" r="2" opacity=".7"/>
+        <circle cx="1480" cy="300" r="1.5" opacity=".5"/><circle cx="1900" cy="60" r="2" opacity=".7"/>
+      </g>
+      <circle cx="1620" cy="190" r="120" fill="#f4efd8" opacity=".07"/>
+      <circle cx="1620" cy="190" r="58" fill="#f4efd8" opacity=".92"/>
+      <path d="M0 780 C300 700 600 740 900 780 S1500 720 1920 760 L1920 1080 L0 1080Z" fill="#2a2a52"/>
+      <path d="M0 870 C400 800 800 880 1200 850 S1700 810 1920 860 L1920 1080 L0 1080Z" fill="#1d1c3d"/>
+      <path d="M0 970 C500 915 900 990 1300 950 S1750 925 1920 960 L1920 1080 L0 1080Z" fill="#12122b"/>
+    </svg>
+
+  </div>
+  <div id="content">
+    <div class="clockbox">
+      <div class="clock"><span class="t" id="ct">--:--</span><span class="p" id="cp"></span></div>
+      <div class="dateline" id="cd"></div>
+    </div>
+    <main id="list"></main>
+    <footer>
+      <span id="upd"></span>
+      <span>ESPN</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ============ الإعدادات (تعديلها هنا فقط) ============ */
+var TZ = 'Asia/Riyadh';   // توقيت مكة المكرمة
+var BASE = 'https://site.api.espn.com/apis/site/v2/sports/soccer/';
+var MAX_MATCHES = 21;      // أقصى عدد مباريات تنعرض (كل مباريات اليوم، والمفضلة لها الأولوية إذا زادت)
+// نافذة الجلب أوسع من اليوم احتياطاً لفرق التوقيت بين ESPN والرياض؛ العرض نفسه لليوم فقط
+var DAYS_BACK = 1, DAYS_AHEAD = 1;
+var POLL_NORMAL = 10*60e3, POLL_LIVE = 60e3, POLL_RETRY = 2*60e3;
+var RELOAD_EVERY = 12*3600e3;   // إعادة تحميل الصفحة كاملة كل 12 ساعة (وعند منتصف الليل)
+
+// خلفية اليوم: وقت بداية كل مرحلة (بتوقيت مكة) بالترتيب: صباح، ظهر، غروب، مساء/ليل
+var PHASE_START = ['06:00','11:00','16:30','18:30'];
+var BLEND_MIN = 60;       // مدة التمازج الناعم بين مرحلتين (بالدقائق، نص قبل الموعد ونص بعده)
+
+var SA   = ['hilal','nassr','ittihad','ahli'];                       // الهلال، النصر، الاتحاد، الأهلي
+var EURO = ['real madrid','paris saint germain','manchester city'];  // ريال مدريد، باريس، سيتي
+// أسماء تشبه فرقك لكنها فرق ثانية (احتياط/نسائي/دول ثانية) تُستبعد
+var SKIP = ['castilla','women','omdurman','khartoum','alexandria','cairo','tripoli',
+            'benghazi','doha','dubai','manama','amman','tanger'];
+var LEAGUES = [
+  { slug:'ksa.1',          label:'الدوري السعودي',    cls:'ksa', clubs:SA },
+  { slug:'uefa.champions', label:'دوري أبطال أوروبا', cls:'ucl', clubs:EURO },
+  { slug:'eng.1',          label:'الدوري الإنجليزي',  cls:'oth', clubs:EURO },
+  { slug:'esp.1',          label:'الدوري الإسباني',   cls:'oth', clubs:EURO },
+  // كل المسابقات الباقية (كؤوس، آسيا، ودية، فرنسا...) لفرقك السبعة فقط
+  { slug:'all', label:null, cls:'oth', heavy:true, limit:1000, ahead:1,
+    clubs:SA.concat(EURO), skip:SKIP }
+];
+
+var COMP_AR = [
+  [/champions league/i,'دوري أبطال أوروبا'], [/europa league/i,'الدوري الأوروبي'],
+  [/conference league/i,'دوري المؤتمر'], [/premier league/i,'الدوري الإنجليزي'],
+  [/laliga|la liga/i,'الدوري الإسباني'], [/ligue 1/i,'الدوري الفرنسي'],
+  [/copa del rey/i,'كأس ملك إسبانيا'], [/fa cup/i,'كأس الاتحاد الإنجليزي'],
+  [/league cup|carabao/i,'كأس الرابطة الإنجليزية'], [/coupe de france/i,'كأس فرنسا'],
+  [/community shield/i,'درع المجتمع'], [/supercopa|super cup|supercup|trophee des champions/i,'السوبر'],
+  [/club world cup/i,'كأس العالم للأندية'], [/friendl/i,'مباراة ودية']
+];
+
+var AR = {
+  'al hilal':'الهلال','al ahli':'الأهلي','al nassr':'النصر','al ittihad':'الاتحاد',
+  'al fayha':'الفيحاء','al hazem':'الحزم','al shabab':'الشباب','al faisaly':'الفيصلي',
+  'al kholood':'الخلود','abha':'أبها','al ettifaq':'الاتفاق','al taawoun':'التعاون',
+  'al fateh':'الفتح','al qadsiah':'القادسية','al okhdood':'الأخدود','damac':'ضمك',
+  'al riyadh':'الرياض','neom':'نيوم',
+  'real madrid':'ريال مدريد','barcelona':'برشلونة','atletico madrid':'أتلتيكو مدريد',
+  'bayern munich':'بايرن ميونخ','paris saint germain':'باريس سان جيرمان',
+  'manchester city':'مانشستر سيتي','liverpool':'ليفربول','arsenal':'أرسنال',
+  'chelsea':'تشيلسي','manchester united':'مانشستر يونايتد','juventus':'يوفنتوس',
+  'inter milan':'إنتر ميلان','ac milan':'ميلان','borussia dortmund':'بوروسيا دورتموند',
+  'napoli':'نابولي','as roma':'روما','fc porto':'بورتو','psv eindhoven':'آيندهوفن',
+  'fenerbahce':'فنربخشة','villarreal':'فياريال','aek athens':'أيك أثينا',
+  'vfb stuttgart':'شتوتغارت','slavia prague':'سلافيا براغ','sabah fk':'صباح',
+  'bodo glimt':'بودو غليمت','slovan bratislava':'سلوفان براتيسلافا','como':'كومو'
+};
+/* ===================================================== */
+
+var DEBUG = /[?&]debug=1/.test(location.search);
+var DEMO  = /[?&]demo=1/.test(location.search);       // معاينة: اليوم كامل بدقيقتين
+var FORCE_T = location.search.match(/[?&]t=(\d{1,2}):(\d{2})/); // معاينة وقت ثابت مثل ?t=17:40
+var CACHE_KEY = 'matches_cache_v3';
+var state = { list:[], ts:0, failed:false, lastFull:0 };
+var loadedDay = null, startedAt = Date.now(), timer = null;
+
+var elList = document.getElementById('list');
+var elUpd = document.getElementById('upd');
+var stage = document.getElementById('stage');
+var content = document.getElementById('content');
+var bgBox = document.getElementById('bg');
+
+/* ---------- أدوات التاريخ (بتوقيت مكة) ---------- */
+var fmtParts = new Intl.DateTimeFormat('en-US',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'});
+function dayKey(ms){
+  var o = {}; fmtParts.formatToParts(new Date(ms)).forEach(function(p){ o[p.type]=p.value; });
+  return o.year+'-'+o.month+'-'+o.day;
+}
+function addDays(key,n){
+  var p = key.split('-');
+  return new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+n)).toISOString().slice(0,10);
+}
+var LOC = 'ar-SA-u-nu-latn-ca-gregory';
+var fmtDay = new Intl.DateTimeFormat(LOC,{timeZone:TZ,weekday:'long',day:'numeric',month:'long'});
+var fmtTime = new Intl.DateTimeFormat(LOC,{timeZone:TZ,hour:'numeric',minute:'2-digit',hour12:true});
+var fmtHM = new Intl.DateTimeFormat('en-GB',{timeZone:TZ,hour:'2-digit',minute:'2-digit',hour12:false});
+var fmtClock = new Intl.DateTimeFormat('en-US',{timeZone:TZ,hour:'numeric',minute:'2-digit',hour12:true});
+
+/* ---------- الساعة (12 ساعة) ---------- */
+var lastClock = '';
+function tick(){
+  var o = {};
+  fmtClock.formatToParts(new Date()).forEach(function(p){ o[p.type]=p.value; });
+  var t = o.hour+':'+o.minute;
+  var p = (String(o.dayPeriod||'').toUpperCase().indexOf('P')===0) ? 'م' : 'ص';
+  var d = fmtDay.format(new Date());
+  var sig = t+'|'+p+'|'+d;
+  if(sig===lastClock) return;
+  lastClock = sig;
+  document.getElementById('ct').textContent = t;
+  document.getElementById('cp').textContent = p;
+  document.getElementById('cd').textContent = d;
+}
+
+/* ---------- خلفية اليوم: 4 مراحل بتمازج ناعم ---------- */
+function toMin(s){ var p = s.split(':'); return (+p[0])*60 + (+p[1]); }
+// يرجع المشهد السفلي a والعلوي b ونسبة ظهور العلوي t (0..1)
+function bgState(m, starts, blend){
+  var B = starts.map(toMin), n = B.length, half = blend/2, p = 0, off = 0, left = 0;
+  for(var i=0;i<n;i++){
+    var s = B[i], e = B[(i+1)%n];
+    var len = (e - s + 1440) % 1440, o = (m - s + 1440) % 1440;
+    if(o < len){ p = i; off = o; left = len - o; break; }
+  }
+  var nxt = (p+1)%n, prv = (p+n-1)%n;
+  if(left < half) return { a:p,   b:nxt, t:0.5 - left/blend };
+  if(off  < half) return { a:prv, b:p,   t:0.5 + off/blend };
+  return { a:p, b:p, t:1 };
+}
+var scenes = [0,1,2,3].map(function(i){ return document.getElementById('sc'+i); });
+var bgReady = false;
+function nowMin(){
+  if(DEMO) return ((Date.now()/1000)*12) % 1440;      // 12 دقيقة افتراضية كل ثانية
+  if(FORCE_T) return (+FORCE_T[1])*60 + (+FORCE_T[2]);
+  var o = {};
+  fmtHM.formatToParts(new Date()).forEach(function(p){ o[p.type]=p.value; });
+  return ((+o.hour) % 24)*60 + (+o.minute);
+}
+function applyBg(){
+  var s = bgState(nowMin(), PHASE_START, BLEND_MIN);
+  scenes.forEach(function(el,i){
+    var op = 0, z = 0;
+    if(i===s.b){ op = (s.a===s.b) ? 1 : s.t; z = 2; }
+    else if(i===s.a){ op = 1; z = 1; }
+    el.style.opacity = String(op);
+    el.style.zIndex = String(z);
+    el.setAttribute('class', 'scene' + (op>0 ? ' on' : ''));
+  });
+  if(!bgReady){
+    bgReady = true;
+    if(DEMO) bgBox.className = 'demo';
+    setTimeout(function(){ bgBox.className = 'ready' + (DEMO ? ' demo' : ''); }, 200);
+  }
+}
+// أشعة الشمس في مشهد الصباح
+function rays(id,cx,cy,r1,rLong,rShort,n){
+  var g = document.getElementById(id), NS = 'http://www.w3.org/2000/svg';
+  if(!g) return;
+  for(var k=0;k<n;k++){
+    var a = k*2*Math.PI/n, r2 = (k%2) ? rShort : rLong;
+    var l = document.createElementNS(NS,'line');
+    l.setAttribute('x1',(cx+r1*Math.cos(a)).toFixed(1));
+    l.setAttribute('y1',(cy+r1*Math.sin(a)).toFixed(1));
+    l.setAttribute('x2',(cx+r2*Math.cos(a)).toFixed(1));
+    l.setAttribute('y2',(cy+r2*Math.sin(a)).toFixed(1));
+    g.appendChild(l);
+  }
+}
+rays('rays0',1480,700,125,420,300,28);
+
+/* ---------- تطبيع الأسماء والفلترة ---------- */
+function normName(s){
+  return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();
+}
+function hasClub(name, clubs){
+  var h = ' '+name+' ';
+  for(var i=0;i<clubs.length;i++){ if(h.indexOf(' '+clubs[i]+' ')>-1) return true; }
+  return false;
+}
+function mkTeam(c){
+  var t = c.team || {}, key = normName(t.displayName || t.name);
+  return { key:key, en:t.displayName || t.name || '?', ar:AR[key] || null,
+           logo:t.logo || '', score:c.score };
+}
+function compLabel(note){
+  var s = String(note||'');
+  for(var i=0;i<COMP_AR.length;i++){ if(COMP_AR[i][0].test(s)) return COMP_AR[i][1]; }
+  return s.split(',')[0] || 'مباراة';
+}
+function norm(e, L){
+  var c = e.competitions && e.competitions[0];
+  if(!c || !c.competitors || c.competitors.length<2) return null;
+  var h=null, a=null;
+  c.competitors.forEach(function(x){ if(x.homeAway==='home') h=x; else if(x.homeAway==='away') a=x; });
+  if(!h || !a) return null;
+  var H = mkTeam(h), A = mkTeam(a);
+  function m1(k){ return hasClub(k,L.clubs) && !(L.skip && hasClub(k,L.skip)); }
+  var ok = m1(H.key) || m1(A.key);
+  if(DEBUG) console.log((ok?'KEEP ':'skip ')+L.slug+' | '+H.en+' v '+A.en+' | '+e.date);
+  if(!ok) return null;
+  var ts = Date.parse(e.date);
+  if(isNaN(ts)) ts = Date.parse(String(e.date).replace('Z',':00Z'));
+  if(isNaN(ts)) return null;
+  var st = c.status || e.status || {}, ty = st.type || {};
+  return { id:e.id, lg:L.slug, cls:L.cls, ts:ts,
+           label: L.label || compLabel(c.altGameNote || (e.season && e.season.slug) || ''),
+           state:ty.state || 'pre', sname:ty.name || '', clock:st.displayClock || '',
+           home:H, away:A };
+}
+
+/* ---------- الجلب ---------- */
+function fetchJson(url){
+  var ctl = (typeof AbortController!=='undefined') ? new AbortController() : null;
+  var t = setTimeout(function(){ if(ctl) ctl.abort(); }, 15000);
+  return fetch(url,{cache:'no-store', signal: ctl ? ctl.signal : undefined}).then(function(r){
+    clearTimeout(t);
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return r.json();
+  },function(e){ clearTimeout(t); throw e; });
+}
+function load(full){
+  var today = dayKey(Date.now()), jobs = [], ok = 0, bad = 0;
+  LEAGUES.forEach(function(L){
+    var to = (L.ahead !== undefined) ? L.ahead : DAYS_AHEAD;
+    if(!full && L.heavy) to = 0;
+    for(var i=-DAYS_BACK;i<=to;i++){
+      (function(ds){
+        var url = BASE+L.slug+'/scoreboard?dates='+ds+(L.limit ? '&limit='+L.limit : '');
+        jobs.push(fetchJson(url).then(
+          function(j){ ok++; return {L:L,j:j}; },
+          function(){ bad++; return null; }));
+      })(addDays(today,i).replace(/-/g,''));
+    }
+  });
+  return Promise.all(jobs).then(function(res){
+    if(!ok) throw new Error('all requests failed');
+    var map = {}, seen = {};
+    if(!full) state.list.forEach(function(m){ map[m.id] = m; });
+    res.forEach(function(r){
+      if(!r || !r.j || !r.j.events) return;
+      r.j.events.forEach(function(e){
+        var m = norm(e,r.L);
+        if(m && !seen[m.id]){ seen[m.id] = 1; map[m.id] = m; }
+      });
+    });
+    var list = Object.keys(map).map(function(k){ return map[k]; });
+    return { list:list, partial: bad>0 };
+  });
+}
+
+/* ---------- كاش آمن ---------- */
+function saveCache(){
+  try{ localStorage.setItem(CACHE_KEY, JSON.stringify({t:state.ts, list:state.list})); }catch(e){}
+}
+function loadCache(){
+  try{
+    var o = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+    if(o && o.list && o.list.length!==undefined){ state.list=o.list; state.ts=o.t||0; }
+  }catch(e){}
+}
+
+/* ---------- العرض ---------- */
+function el(tag, cls, text){
+  var n = document.createElement(tag);
+  if(cls) n.className = cls;
+  if(text!==undefined && text!==null) n.textContent = text;
+  return n;
+}
+function crest(t){
+  var nm = t.ar || t.en;
+  function fb(){ return el('div','crest fb', nm.charAt(0)); }
+  if(!t.logo) return fb();
+  var img = el('img','crest'); img.alt='';
+  img.onerror = function(){ if(img.parentNode) img.parentNode.replaceChild(fb(), img); };
+  img.src = t.logo;
+  return img;
+}
+function teamEl(t, side){
+  var d = el('div','team '+side);
+  d.appendChild(crest(t));
+  d.appendChild(el('div','name', t.ar || t.en));
+  return d;
+}
+function midEl(m){
+  var d = el('div','mid');
+  var s = m.sname || '';
+  if(/POSTPONED|DELAYED|SUSPENDED/.test(s)){
+    d.appendChild(el('div','time warn','مؤجلة'));
+  } else if(/CANCEL|ABANDON/.test(s)){
+    d.appendChild(el('div','time warn','ملغاة'));
+  } else if(m.state==='in' || m.state==='post'){
+    var sc = el('div','score');
+    sc.appendChild(el('span',null,m.home.score));
+    sc.appendChild(el('i',null,'-'));
+    sc.appendChild(el('span',null,m.away.score));
+    d.appendChild(sc);
+    if(m.state==='in'){
+      var sub = el('div','sub live');
+      sub.appendChild(el('span','pulse'));
+      sub.appendChild(document.createTextNode(/HALFTIME/.test(s) ? 'استراحة' : (m.clock || 'مباشر')));
+      d.appendChild(sub);
+    } else {
+      d.appendChild(el('div','sub','انتهت'));
+    }
+  } else {
+    d.appendChild(el('div','time', fmtTime.format(new Date(m.ts))));
+  }
+  return d;
+}
+function cardEl(m){
+  var c = el('div','card '+m.cls+(m.state==='in'?' live':''));
+  c.appendChild(el('div','tag',m.label));
+  c.appendChild(teamEl(m.home,'home'));
+  c.appendChild(midEl(m));
+  c.appendChild(teamEl(m.away,'away'));
+  return c;
+}
+function isFav(m){ return true; }
+// مباريات اليوم فقط (بتوقيت مكة) + أي مباراة مباشرة حالياً، مرتبة بالوقت
+function select(limit){
+  var today = dayKey(Date.now());
+  var cand = state.list.filter(function(m){ return m.state==='in' || dayKey(m.ts)===today; });
+  cand.sort(function(a,b){ return a.ts-b.ts; });
+  var chosen = cand.filter(isFav).concat(cand.filter(function(m){ return !isFav(m); })).slice(0, limit);
+  chosen.sort(function(a,b){ return a.ts-b.ts; });
+  return chosen;
+}
+// يختار عدد الأعمدة وحجم البطاقات حسب عدد مباريات اليوم
+function layoutFor(n){
+  if(n<=1) return 'g1 s0';
+  if(n===2 || n===4) return 'g2 s0';
+  if(n<=6) return 'g3 s1';
+  if(n<=12) return 'g3 s2';
+  return 'g3 s3';
+}
+function buildList(limit){
+  var items = select(limit);
+  elList.textContent = '';
+  var empty = false;
+  if(!state.ts && !state.list.length){
+    elList.appendChild(el('div','msg', state.failed ? 'تعذّر جلب المباريات.\nسنحاول مرة أخرى تلقائياً.' : 'جاري تحميل المباريات…'));
+    empty = true;
+  } else if(!items.length){
+    elList.appendChild(el('div','msg','لا توجد مباريات مهمة اليوم'));
+    empty = true;
+  } else {
+    var grid = el('div','grid '+layoutFor(items.length));
+    items.forEach(function(m){ grid.appendChild(cardEl(m)); });
+    elList.appendChild(grid);
+  }
+  content.className = empty ? 'empty' : '';
+}
+function render(){
+  // إذا ما كفت المساحة نقلّل العدد تدريجياً (احتياط فقط)
+  for(var lim=MAX_MATCHES; lim>=1; lim--){
+    buildList(lim);
+    if(!(elList.scrollHeight > elList.clientHeight + 1)) break;
+  }
+  elUpd.textContent = '';
+  if(state.ts){
+    var old = (Date.now()-state.ts) > 45*60e3;
+    var s = el('span', old||state.failed ? 'stale' : null,
+      (old ? 'بيانات قديمة · ' : '') + 'آخر تحديث ' + fmtHM.format(new Date(state.ts)));
+    elUpd.appendChild(s);
+  }
+}
+
+/* ---------- الجدولة ---------- */
+function schedule(){
+  var now = Date.now();
+  var fast = state.list.some(function(m){
+    return m.state==='in' || (m.state==='pre' && m.ts-now < 20*60e3 && m.ts-now > -5*60e3);
+  });
+  var ms = state.failed ? POLL_RETRY : (fast ? POLL_LIVE : POLL_NORMAL);
+  clearTimeout(timer); timer = setTimeout(cycle, ms);
+}
+function cycle(){
+  var full = !state.lastFull || (Date.now() - state.lastFull) >= POLL_NORMAL - 5000;
+  load(full).then(function(r){
+    state.list = r.list; state.ts = Date.now(); state.failed = r.partial;
+    if(full && !r.partial) state.lastFull = Date.now();
+    saveCache();
+  }, function(){
+    state.failed = true;
+  }).then(function(){ render(); schedule(); });
+}
+
+/* ---------- ملاءمة الشاشة + إزاحة البكسلات + إعادة التحميل ---------- */
+function fit(){
+  var w = window.innerWidth || 1920, h = window.innerHeight || 1080;
+  var s = Math.min(w/1920, h/1080);
+  stage.style.transform = 'translate('+((w-1920*s)/2)+'px,'+((h-1080*s)/2)+'px) scale('+s+')';
+}
+window.addEventListener('resize', fit); fit();
+setInterval(function(){
+  var dx = Math.round(Math.random()*20-10), dy = Math.round(Math.random()*20-10);
+  content.style.transform = 'translate('+dx+'px,'+dy+'px)';
+}, 5*60e3);
+loadedDay = dayKey(Date.now());
+setInterval(function(){
+  if(dayKey(Date.now()) !== loadedDay || Date.now()-startedAt > RELOAD_EVERY) location.reload();
+  else render();
+}, 30e3);
+setInterval(applyBg, DEMO ? 1000 : 30e3);
+setInterval(tick, 1000);
+
+applyBg(); tick(); loadCache(); render(); cycle();
+})();
+</script>
+</body>
+</html>

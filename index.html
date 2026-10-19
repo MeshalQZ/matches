@@ -4,14 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>المباريات المهمة</title>
+<!-- الخطوط: Manrope للأرقام + IBM Plex Sans Arabic للنصوص العربية (إذا فشل التحميل تُستخدم الخطوط البديلة تلقائياً) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --text:#f4f7ff; --muted:#a9b6dc; --live:#ff4d5e; --amber:#ffb84d;
   --ksa:#22c27a; --ucl:#5a97ff; --oth:#c07bff;
+  --ui:"IBM Plex Sans Arabic","Segoe UI",Tahoma,"Noto Sans Arabic","Noto Kufi Arabic",Arial,sans-serif;
+  --num:"Manrope","IBM Plex Sans Arabic","Segoe UI",Tahoma,"Noto Sans Arabic",Arial,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:100%;overflow:hidden;background:#050a1c;color:var(--text);
-  font-family:"Segoe UI",Tahoma,"Noto Sans Arabic","Noto Kufi Arabic",Arial,sans-serif}
+  font-family:var(--ui)}
 #stage{position:absolute;top:0;left:0;width:1920px;height:1080px;transform-origin:0 0;
   background:#050a1c;overflow:hidden}
 
@@ -24,16 +30,30 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050a1c;color:var(--
 #bg.ready.demo .scene{transition:opacity 1s linear,visibility 0s linear 1s}
 #bg.ready.demo .scene.on{transition:opacity 1s linear,visibility 0s linear 0s}
 
-#content{position:relative;z-index:1;width:100%;height:100%;transition:transform 3s ease-in-out;display:flex;flex-direction:column}
+/* طبقة تباين شفافة فوق الخلفية وتحت المحتوى: تحافظ على وضوح الساعة على كل الخلفيات */
+#veil{position:absolute;top:0;left:0;width:1920px;height:1080px;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 62% 34% at 50% 19%,rgba(3,10,34,.34),rgba(3,10,34,0) 72%),
+    linear-gradient(180deg,rgba(3,10,34,.46) 0%,rgba(3,10,34,.30) 26%,rgba(3,10,34,.08) 46%,rgba(3,10,34,0) 58%,rgba(3,10,34,.22) 100%)}
+
+#content{position:relative;z-index:2;width:100%;height:100%;transition:transform 3s ease-in-out;display:flex;flex-direction:column}
 
 /* الساعة */
-.clockbox{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:34px 0 14px}
-.clock{direction:ltr;display:flex;align-items:baseline;justify-content:center;gap:26px;line-height:1}
-.clock .t{font-size:230px;font-weight:900;letter-spacing:2px;font-variant-numeric:tabular-nums;color:#fff;
-  text-shadow:0 2px 8px rgba(0,10,40,.45),0 6px 40px rgba(0,20,70,.5)}
-.clock .p{font-size:76px;font-weight:800;color:var(--amber);text-shadow:0 2px 8px rgba(0,10,40,.5)}
-.dateline{margin-top:10px;font-size:40px;font-weight:700;color:#eaf1ff;
-  text-shadow:0 2px 8px rgba(0,10,40,.55),0 4px 20px rgba(0,20,70,.4)}
+.clockbox{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:38px 0 12px}
+.clock{direction:ltr;display:flex;align-items:center;justify-content:center;gap:30px;line-height:1}
+.clock .t{font-family:var(--num);font-size:192px;font-weight:700;letter-spacing:-.035em;line-height:1;
+  font-variant-numeric:tabular-nums lining-nums;font-feature-settings:"tnum" 1,"lnum" 1;color:#fff;
+  text-shadow:0 1px 2px rgba(2,8,30,.40),0 8px 36px rgba(2,10,40,.38)}
+.clock .p{font-family:var(--ui);font-size:40px;font-weight:600;line-height:1;color:var(--amber);
+  padding:11px 24px 13px;border-radius:999px;
+  background:rgba(255,184,77,.14);border:1.5px solid rgba(255,184,77,.48);
+  box-shadow:0 4px 18px rgba(2,8,30,.28),inset 0 1px 0 rgba(255,255,255,.10);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  transform:translateY(-3px);text-shadow:0 1px 4px rgba(2,8,30,.45)}
+.clock .p:empty{display:none}
+.dateline{margin-top:16px;font-family:var(--ui);font-size:42px;font-weight:500;letter-spacing:.01em;
+  color:rgba(236,243,255,.88);
+  text-shadow:0 1px 3px rgba(2,8,30,.50),0 4px 22px rgba(2,10,40,.40)}
 
 /* المباريات */
 main{flex:1;min-height:0;padding:0 80px;overflow:hidden;display:flex;align-items:center}
@@ -46,38 +66,47 @@ main{flex:1;min-height:0;padding:0 80px;overflow:hidden;display:flex;align-items
 .s2{--h:100px;--cr:52px;--nm:25px;--sc:40px;--tm:34px;--mid:150px;--pd:18px}
 .s3{--h:84px;--cr:44px;--nm:22px;--sc:34px;--tm:29px;--mid:128px;--pd:14px}
 
-.card{position:relative;height:var(--h);border-radius:20px;
-  background:linear-gradient(135deg,rgba(24,36,92,.86),rgba(18,26,70,.86));
-  border:1px solid rgba(255,255,255,.12);
+.card{position:relative;height:var(--h);border-radius:22px;
+  background:linear-gradient(135deg,rgba(28,42,104,.90),rgba(13,21,62,.92));
+  border:1px solid rgba(255,255,255,.11);
   padding:calc(var(--h)*.12) var(--pd) 0;display:flex;align-items:center;gap:10px;
-  border-inline-start:6px solid var(--ucl);box-shadow:0 6px 20px rgba(0,0,0,.28)}
+  border-inline-start:6px solid var(--ucl);
+  box-shadow:0 10px 28px rgba(2,6,24,.36),0 2px 6px rgba(2,6,24,.25),inset 0 1px 0 rgba(255,255,255,.07)}
 .card.ksa{border-inline-start-color:var(--ksa)}
 .card.oth{border-inline-start-color:var(--oth)}
-.card.live{box-shadow:0 0 0 2px var(--live),0 6px 24px rgba(255,77,94,.28)}
+.card.live{
+  background:
+    linear-gradient(135deg,rgba(255,77,94,.13),rgba(255,77,94,0) 58%),
+    linear-gradient(135deg,rgba(28,42,104,.92),rgba(13,21,62,.94));
+  border-color:rgba(255,77,94,.55);
+  box-shadow:0 0 0 1.5px rgba(255,77,94,.70),0 0 28px rgba(255,77,94,.20),0 10px 28px rgba(2,6,24,.36)}
 .tag{position:absolute;top:calc(var(--h)*.07);left:50%;transform:translateX(-50%);
-  font-size:calc(var(--nm)*.56);color:var(--muted);white-space:nowrap}
+  font-size:calc(var(--nm)*.56);font-weight:500;letter-spacing:.02em;color:rgba(184,198,236,.82);white-space:nowrap}
 .team{flex:1;min-width:0;display:flex;align-items:center;gap:calc(var(--pd)*.5)}
 .team.away{flex-direction:row-reverse}
-.crest{width:var(--cr);height:var(--cr);flex:none;object-fit:contain}
-.crest.fb{border-radius:50%;background:#2a3d85;display:flex;align-items:center;justify-content:center;font-size:calc(var(--cr)*.47);font-weight:700}
-.name{flex:1;text-align:center;font-size:var(--nm);font-weight:700;line-height:1.2;
+.crest{width:var(--cr);height:var(--cr);flex:none;object-fit:contain;filter:drop-shadow(0 3px 6px rgba(0,0,0,.35))}
+.crest.fb{border-radius:50%;background:linear-gradient(145deg,#34489a,#243575);display:flex;align-items:center;justify-content:center;font-size:calc(var(--cr)*.47);font-weight:700;filter:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.name{flex:1;text-align:center;font-size:var(--nm);font-weight:700;line-height:1.22;color:#fff;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .mid{width:var(--mid);flex:none;text-align:center}
-.time{font-size:var(--tm);font-weight:800}
-.score{font-size:var(--sc);font-weight:800;display:flex;justify-content:center;gap:12px;align-items:center;line-height:1.1}
-.score i{font-style:normal;color:var(--muted)}
-.sub{font-size:calc(var(--nm)*.7);margin-top:2px;color:var(--muted)}
+.time{font-family:var(--num);font-size:var(--tm);font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;color:#fff}
+.score{font-family:var(--num);font-size:var(--sc);font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums;
+  display:flex;justify-content:center;gap:12px;align-items:center;line-height:1.1;color:#fff}
+.score i{font-style:normal;color:var(--muted);font-weight:600}
+.sub{font-size:calc(var(--nm)*.7);margin-top:2px;color:var(--muted);font-weight:500}
 .sub.live{color:var(--live);font-weight:700}
-.time.warn{color:var(--amber);font-size:calc(var(--tm)*.78)}
-.pulse{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--live);margin-inline-end:8px;animation:p 1.4s infinite}
-@keyframes p{0%,100%{opacity:1}50%{opacity:.25}}
+.time.warn{color:var(--amber);font-size:calc(var(--tm)*.78);font-family:var(--ui);font-weight:700}
+.pulse{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--live);margin-inline-end:8px;
+  box-shadow:0 0 8px rgba(255,77,94,.75);animation:p 2s ease-in-out infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.4}}
 .msg{display:flex;align-items:center;justify-content:center;font-size:44px;color:var(--muted);text-align:center;line-height:1.6;white-space:pre-line;width:100%}
 #content.empty .msg{color:#fff;text-shadow:0 2px 10px rgba(0,10,40,.6)}
 
 #content.empty .clockbox{flex:1}
 #content.empty main{flex:0 0 160px}
 
-footer{flex:0 0 56px;opacity:.85;padding:0 80px;display:flex;justify-content:space-between;align-items:center;font-size:22px;color:#e2e9fb;
+footer{flex:0 0 56px;opacity:.82;padding:0 80px;display:flex;justify-content:space-between;align-items:center;font-size:22px;font-weight:500;letter-spacing:.02em;color:#e2e9fb;
   text-shadow:0 1px 6px rgba(0,10,40,.7)}
 footer .stale{color:var(--amber)}
 </style>
@@ -236,6 +265,7 @@ footer .stale{color:var(--amber)}
     </svg>
 
   </div>
+  <div id="veil" aria-hidden="true"></div>
   <div id="content">
     <div class="clockbox">
       <div class="clock"><span class="t" id="ct">--:--</span><span class="p" id="cp"></span></div>
@@ -648,6 +678,8 @@ setInterval(applyBg, DEMO ? 1000 : 30e3);
 setInterval(tick, 1000);
 
 applyBg(); tick(); loadCache(); render(); cycle();
+// إعادة قياس التخطيط بعد تحميل الخطوط (إضافة بصرية فقط، لا تغيّر أي منطق)
+try{ if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ render(); }); }catch(e){}
 })();
 </script>
 </body>

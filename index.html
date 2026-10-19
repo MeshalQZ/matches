@@ -7,7 +7,7 @@
 <!-- الخطوط: Manrope للأرقام + IBM Plex Sans Arabic للنصوص العربية (إذا فشل التحميل تُستخدم الخطوط البديلة تلقائياً) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --text:#f4f7ff; --muted:#a9b6dc; --live:#ff4d5e; --amber:#ffb84d;
@@ -58,6 +58,13 @@ html,body{width:100%;height:100%;overflow:hidden;background:#050a1c;color:var(--
 .dateline{margin-top:16px;font-family:var(--ui);font-size:42px;font-weight:500;letter-spacing:.01em;
   color:rgba(236,243,255,.88);
   text-shadow:0 1px 3px rgba(2,8,30,.50),0 4px 22px rgba(2,10,40,.40)}
+
+/* الذكر: في الصف العلوي فوق الساعة، يتقلص خطه تلقائياً إذا ضاق المكان فلا يتداخل مع الساعة أو المباريات */
+#dhikr{grid-row:1;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:10px 160px;pointer-events:none}
+#dk{display:block;max-width:1500px;text-align:center;font-family:var(--ui);font-size:42px;font-weight:300;line-height:1.6;
+  color:rgba(244,247,255,.86);text-wrap:balance;
+  text-shadow:0 1px 3px rgba(2,8,30,.55),0 4px 22px rgba(2,10,40,.45);
+  opacity:0;transition:opacity .9s ease-in-out}
 
 /* المباريات */
 main{grid-row:3;padding:0 80px 56px;overflow:hidden;display:flex;align-items:center}
@@ -270,6 +277,7 @@ footer .stale{color:var(--amber)}
   </div>
   <div id="veil" aria-hidden="true"></div>
   <div id="content">
+    <div id="dhikr"><span id="dk"></span></div>
     <div class="clockbox">
       <div class="clock"><span class="t" id="ct">--:--</span><span class="p" id="cp"></span></div>
       <div class="dateline" id="cd"></div>
@@ -683,6 +691,69 @@ setInterval(tick, 1000);
 applyBg(); tick(); loadCache(); render(); cycle();
 // إعادة قياس التخطيط بعد تحميل الخطوط (إضافة بصرية فقط، لا تغيّر أي منطق)
 try{ if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ render(); }); }catch(e){}
+})();
+</script>
+
+<script>
+/* ===== الذكر: يتبدل كل ساعتين بالترتيب (10 أذكار ثم يعيد من الأول).
+   وقت البداية محفوظ في localStorage، والذكر الحالي يُحسب من الوقت المنقضي،
+   فالتحديث أو إعادة فتح الصفحة لا يصفّر الجدول ولا يعيد الفترة ===== */
+(function(){
+'use strict';
+var ADHKAR = [
+  'سبحان الله وبحمده، سبحان الله العظيم',
+  'أستغفر الله وأتوب إليه',
+  'لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير',
+  'اللهم صلِّ وسلم على نبينا محمد',
+  'لا حول ولا قوة إلا بالله',
+  'الحمد لله رب العالمين',
+  'سبحان الله، والحمد لله، ولا إله إلا الله، والله أكبر',
+  'حسبي الله ونعم الوكيل',
+  'يا حي يا قيوم برحمتك أستغيث أصلح لي شأني كله ولا تكلني إلى نفسي طرفة عين',
+  'سبحان الله وبحمده، عدد خلقه، ورضا نفسه، وزنة عرشه، ومداد كلماته'
+];
+var PERIOD = 2*3600e3, KEY = 'dhikr_anchor_v1';
+var box = document.getElementById('dhikr'), txt = document.getElementById('dk');
+if(!box || !txt) return;
+var cur = -1;
+
+// وقت بداية الجدول: يُحفظ أول مرة، وإذا تعذّر التخزين نستخدم جدولاً ثابتاً مبنياً على الوقت نفسه
+function anchor(){
+  var now = Date.now(), a = NaN;
+  try{ a = parseInt(localStorage.getItem(KEY),10); }catch(e){}
+  if(!isNaN(a) && a>0 && a<=now) return a;
+  try{ localStorage.setItem(KEY, String(now)); return now; }catch(e){ return 0; }
+}
+function idx(){
+  var n = Math.floor((Date.now() - anchor()) / PERIOD);
+  return ((n % ADHKAR.length) + ADHKAR.length) % ADHKAR.length;
+}
+// يصغّر الخط تدريجياً حتى يتسع النص داخل المساحة المتاحة فوق الساعة
+function fit(){
+  var size = 42, avail = box.clientHeight - 20;
+  txt.style.fontSize = size + 'px';
+  while(size > 18 && txt.offsetHeight > avail){ size -= 2; txt.style.fontSize = size + 'px'; }
+}
+function show(i, first){
+  cur = i;
+  if(first){
+    txt.textContent = ADHKAR[i]; fit();
+    setTimeout(function(){ txt.style.opacity = '1'; }, 60);
+    return;
+  }
+  txt.style.opacity = '0';
+  setTimeout(function(){ txt.textContent = ADHKAR[i]; fit(); txt.style.opacity = '1'; }, 1000);
+}
+function check(){
+  var i = idx();
+  if(i !== cur) show(i, cur < 0); else fit();
+}
+if(typeof ResizeObserver !== 'undefined'){
+  try{ new ResizeObserver(function(){ fit(); }).observe(box); }catch(e){}
+}
+try{ if(document.fonts && document.fonts.ready) document.fonts.ready.then(fit); }catch(e){}
+check();
+setInterval(check, 15000);
 })();
 </script>
 </body>
